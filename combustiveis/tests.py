@@ -17,7 +17,9 @@ class AbastecimentoViewTest(TestCase):
         })
         self.assertEqual(response.status_code, 201)
         self.assertEqual(Abastecimento.objects.count(), 1)
-        self.assertEqual(Abastecimento.objects.first().valor, 200)
+        abastecimento = Abastecimento.objects.first()
+        self.assertEqual(abastecimento.valor, 200)
+        self.assertEqual(abastecimento.imposto, 200 * 0.13)
 
     def test_listar_abastecimentos(self):
         Abastecimento.objects.create(bomba=self.bomba1, litros=50, valor=200)
