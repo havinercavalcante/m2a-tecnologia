@@ -23,7 +23,11 @@ class Abastecimento(models.Model):
     data_hora = models.DateTimeField(auto_now_add=True)
     litros = models.FloatField()
     valor = models.FloatField()
-    imposto = models.FloatField(default=0.13)
+    imposto = models.FloatField(default=0.0, editable=False)
+
+    def save(self, *args, **kwargs):
+        self.imposto = self.valor * 0.13 
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f'{self.data_hora} - Bomba {self.bomba.numero} - {self.litros}L - R${self.valor}'
