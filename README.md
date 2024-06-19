@@ -52,4 +52,13 @@ A aplicação está pronta para uso. Navegue até `http://localhost:8000/` para 
 Para gerar um relatório em PDF, acesse o endpoint:
 
 - **Relatórios**: `http://localhost:8000/api/relatorio/`
+  
+Requisição POST com um JSON contendo data_inicio e data_fim.
+
+- **Exemplo**:
+`{
+    "data_inicio": "2024-06-01",
+    "data_fim": "2024-06-19"
+}`
+
 
